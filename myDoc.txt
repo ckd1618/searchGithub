@@ -1,0 +1,7 @@
+//make the folder search_github then cd into it, open terminal in the same location
+npx create-react-app .
+
+delete all files in src except App.js, App.css, and index.js
+delete everything inside the main div of App.js
+delete everything inside of App.css
+delete import serviceworker and import index.css, as well as register.serviceworker from index.js
