@@ -5,3 +5,4 @@ delete all files in src except App.js, App.css, and index.js
 delete everything inside the main div of App.js
 delete everything inside of App.css
 delete import serviceworker and import index.css, as well as register.serviceworker from index.js
+<React.Fragment> </React.Fragment> is a ghost div that doesn't show up in the browser
