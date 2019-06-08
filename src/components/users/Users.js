@@ -25,7 +25,7 @@ var userStyle = {
 }
 
 Users.propTypes = {
-  users: PropTypes.object.isRequired,
+  users: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
 }
 

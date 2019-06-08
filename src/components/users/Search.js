@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Search extends Component {
   state = {
@@ -6,12 +7,15 @@ export class Search extends Component {
   }
 
   onSubmit = e => {
+    console.log(e)
     e.preventDefault();
-    this.props.searchUsers(e.target.value);
+    // this.props.searchUsers(e.target.value);
+    this.props.searchUsers(this.state.text);
     this.setState({ text: '' });
   }
 
   onChange = e => {
+    console.log(e);
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -28,9 +32,17 @@ export class Search extends Component {
           />
           <button className="btn btn-dark btn-block">Submit</button>
         </form>
+
+        {this.props.userLen && <button onClick={this.props.clearUsers} className="btn btn-light btn-block">Clear</button>}
+
       </div>
+
     )
   }
+}
+
+Search.propTypes = {
+  userLen: PropTypes.bool.isRequired
 }
 
 export default Search
