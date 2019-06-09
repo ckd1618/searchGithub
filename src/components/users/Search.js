@@ -7,11 +7,15 @@ export class Search extends Component {
   }
 
   onSubmit = e => {
-    console.log(e)
     e.preventDefault();
-    // this.props.searchUsers(e.target.value);
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: '' });
+    if (this.state.text === '') {
+      this.props.setAlert('Fill in the search prompt.', 'light');
+    } else {
+      // this.props.searchUsers(e.target.value);
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: '' });
+    }
+
   }
 
   onChange = e => {
@@ -33,7 +37,7 @@ export class Search extends Component {
           <button className="btn btn-dark btn-block">Submit</button>
         </form>
 
-        {this.props.userLen && <button onClick={this.props.clearUsers} className="btn btn-light btn-block">Clear</button>}
+        {this.props.showClear && <button onClick={this.props.clearUsers} className="btn btn-light btn-block">Clear</button>}
 
       </div>
 
@@ -42,7 +46,11 @@ export class Search extends Component {
 }
 
 Search.propTypes = {
-  userLen: PropTypes.bool.isRequired
+  showClear: PropTypes.bool.isRequired,
+  searchUsers: PropTypes.func.isRequired,
+  clearUsers: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
+
 }
 
 export default Search
